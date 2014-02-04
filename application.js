@@ -1,7 +1,7 @@
 // Document ready:
 $(function() {
 
-  // Put player ships in active spaces
+  // Put player ships in starting spaces
   placePlayer('player-1');
   placePlayer('player-2');
 
@@ -13,8 +13,14 @@ var updatePlayerPosition = function(player, space) {
   placePlayer(player);
 }
 
+var advancePlayer = function(player) {
+  space = (playerPosition(player) + 1);
+  console.log(space);
+  updatePlayerPosition(player, space);
+}
+
 var playerPosition = function(player) {
-  return $("#" + player + "-track .active").attr('id').slice(-1)
+  return parseInt($("#" + player + "-track .active").attr('id').slice(-1));
 }
 
 var placePlayer = function(player) {
