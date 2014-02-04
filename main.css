@@ -1,0 +1,22 @@
+.container {
+  margin: 30px 50px;
+}
+.racer_table td {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border: solid black 1px;
+  background-url: http://www.gmotors.co.uk/news/wp-content/uploads/2013/12/Lamborghini-Huracan-LP-610-4-5-48x48.jpg;
+}
+
+.racer_table td.active {
+  background-color: black;
+}
+
+#player2_strip td.active {
+  background-color: blue;
+}
+
+#player1_strip td.active {
+  background-color: green;
+}
