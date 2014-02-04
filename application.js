@@ -2,57 +2,62 @@
 $(function() {
 
   // Put player ships in starting spaces
-  placePlayer('player-1');
-  placePlayer('player-2');
-
-  player1Boost = 0;
-  player2Boost = 0;
+  player1 = new Player('player-1');
+  player2 = new Player('player-2');
+  player1.placePlayer();
+  player2.placePlayer();
 
   // Keyup event handler: players advance on certain keyups
   $(document).on('keyup', function(event) {
-    // keyCode 80 = q
+    // keyCode 81 = q, advance player 1
     if (event.keyCode === 81) {
-      if (player1Boost === 3) {
-        advancePlayer('player-1');
-        player1Boost = 0;
+      if (player1.boost === 3) {
+        console.log(player1.boost)
+        player1.advancePlayer();
+        player1.boost = 0;
       } else {
-        player1Boost += 1;
+        player1.boost += 1;
       }
     }
-    // keyCode 81 = p
+    // keyCode 80 = p, advance player 2
     if (event.keyCode === 80) {
-      if (player2Boost === 3) {
-        advancePlayer('player-2');
-        player2Boost = 0;
+      if (player2.boost === 3) {
+        console.log(player2.boost)
+        player2.advancePlayer();
+        player2.boost = 0;
       } else {
-        player2Boost += 1;
+        player2.boost += 1;
       }
     }
   });
 
 });
 
-var updatePlayerPosition = function(player, space) {
-  removePlayer(player);
-  $("#" + player + "-track #space-" + space.toString()).addClass('active');
-  placePlayer(player);
-}
+var Player = function(player) {
+  this.player = player;
+  this.boost = 0;
 
-var advancePlayer = function(player) {
-  space = (playerPosition(player) + 1);
-  console.log(space);
-  updatePlayerPosition(player, space);
-}
+  this.updatePlayerPosition = function(space) {
+    this.removePlayer();
+    $("#" + player + "-track #space-" + space.toString()).addClass('active');
+    this.placePlayer();
+  }
 
-var playerPosition = function(player) {
-  return parseInt($("#" + player + "-track .active").attr('id').slice(-1));
-}
+  this.advancePlayer = function() {
+    space = (this.playerPosition() + 1);
+    this.updatePlayerPosition(space);
+  }
 
-var placePlayer = function(player) {
-  $("#" + player + "-track .active").append("<img src='images/" + player + ".png'/>");
-}
+  this.playerPosition = function() {
+    return parseInt($("#" + player + "-track .active").attr('id').slice(-1));
+  }
 
-var removePlayer = function(player) {
-  $("#" + player + "-track .active").find('img').remove();
-  $("#" + player + "-track .active").removeClass('active');
+  this.placePlayer = function() {
+    $("#" + player + "-track .active").append("<img src='images/" + player + ".png'/>");
+  }
+
+  this.removePlayer = function() {
+    $("#" + player + "-track .active").find('img').remove();
+    $("#" + player + "-track .active").removeClass('active');
+  }
 }
