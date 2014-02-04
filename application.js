@@ -14,6 +14,7 @@ $(function() {
       if (player1.boost === 3) {
         console.log(player1.boost)
         player1.advancePlayer();
+        player1.boost_sound.play();
         player1.boost = 0;
       } else {
         player1.boost += 1;
@@ -24,6 +25,7 @@ $(function() {
       if (player2.boost === 3) {
         console.log(player2.boost)
         player2.advancePlayer();
+        player2.boost_sound.play();
         player2.boost = 0;
       } else {
         player2.boost += 1;
@@ -36,6 +38,7 @@ $(function() {
 var Player = function(player) {
   this.player = player;
   this.boost = 0;
+  this.boost_sound = new Audio("boost.wav");
 
   this.updatePlayerPosition = function(space) {
     this.removePlayer();
