@@ -1,0 +1,14 @@
+td{
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.racer_table{
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.racer_table td.active{
+  background-color: green;
+}
+
