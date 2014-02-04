@@ -1,0 +1,35 @@
+* {
+  border: 1px dotted white;
+}
+
+body {
+  background-image: url('images/space_compressed.jpg');
+  font-family: 'Press Start 2P', sans-serif;
+  color: #ffc754;
+}
+
+.instructions {
+  font-style: bold;
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+  min-width: 300px;
+}
+
+.track {
+  margin-left: 2.3%;
+  width: 45%;
+  display: inline-block;
+}
+
+.track-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.space {
+  height: 30px;
+}
