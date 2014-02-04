@@ -1,0 +1,11 @@
+td {
+  color: white;
+  background-color: black;
+  width: 20px;
+  height: 20px;
+}
+
+td.active {
+  color: black;
+  background-color: yellow;
+}
