@@ -13,6 +13,10 @@ var updatePlayerPosition = function(player, space) {
   placePlayer(player);
 }
 
+var playerPosition = function(player) {
+  return $("#" + player + "-track .active").attr('id').slice(-1)
+}
+
 var placePlayer = function(player) {
   $("#" + player + "-track .active").append("<img src='images/" + player + ".png'/>");
 }
