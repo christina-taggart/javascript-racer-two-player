@@ -23,6 +23,7 @@ body {
   margin-left: 2.3%;
   width: 45%;
   display: inline-block;
+  vertical-align: top;
 }
 
 .track-container {

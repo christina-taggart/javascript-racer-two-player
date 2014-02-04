@@ -7,6 +7,17 @@ $(function() {
 
 });
 
+var updatePlayerPosition = function(player, space) {
+  removePlayer(player);
+  $("#" + player + "-track #space-" + space.toString()).addClass('active');
+  placePlayer(player);
+}
+
 var placePlayer = function(player) {
   $("#" + player + "-track .active").append("<img src='images/" + player + ".png'/>");
+}
+
+var removePlayer = function(player) {
+  $("#" + player + "-track .active").find('img').remove();
+  $("#" + player + "-track .active").removeClass('active');
 }
