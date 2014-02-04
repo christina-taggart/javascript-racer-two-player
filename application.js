@@ -5,16 +5,28 @@ $(function() {
   placePlayer('player-1');
   placePlayer('player-2');
 
+  player1Boost = 0;
+  player2Boost = 0;
 
   // Keyup event handler: players advance on certain keyups
   $(document).on('keyup', function(event) {
-    // keyCode 80 = p
-    if (event.keyCode === 80) {
-
-    }
-    // keyCode 81 = q
+    // keyCode 80 = q
     if (event.keyCode === 81) {
-
+      if (player1Boost === 3) {
+        advancePlayer('player-1');
+        player1Boost = 0;
+      } else {
+        player1Boost += 1;
+      }
+    }
+    // keyCode 81 = p
+    if (event.keyCode === 80) {
+      if (player2Boost === 3) {
+        advancePlayer('player-2');
+        player2Boost = 0;
+      } else {
+        player2Boost += 1;
+      }
     }
   });
 
