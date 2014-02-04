@@ -11,3 +11,15 @@ td {
 #player2_strip {
   background-color: #C9C5BF;
 }
+
+#player1_strip .active {
+  background-color: red;
+}
+
+#player2_strip .active {
+  background-color: orange;
+}
+
+body {
+  background-image: url('calm_ocean.jpeg');
+}
