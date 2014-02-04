@@ -11,25 +11,11 @@ $(function() {
   $(document).on('keyup', function(event) {
     // keyCode 81 = q, advance player 1
     if (event.keyCode === 81) {
-      if (player1.boost === 3) {
-        console.log(player1.boost)
-        player1.advancePlayer();
-        player1.boost_sound.play();
-        player1.boost = 0;
-      } else {
-        player1.boost += 1;
-      }
+      player1.checkBoostToAdvance();
     }
     // keyCode 80 = p, advance player 2
     if (event.keyCode === 80) {
-      if (player2.boost === 3) {
-        console.log(player2.boost)
-        player2.advancePlayer();
-        player2.boost_sound.play();
-        player2.boost = 0;
-      } else {
-        player2.boost += 1;
-      }
+      player2.checkBoostToAdvance();
     }
   });
 
@@ -44,6 +30,16 @@ var Player = function(player) {
     this.removePlayer();
     $("#" + player + "-track #space-" + space.toString()).addClass('active');
     this.placePlayer();
+  }
+
+  this.checkBoostToAdvance = function() {
+    if (this.boost === 3) {
+        this.advancePlayer();
+        this.boost_sound.play();
+        this.boost = 0;
+      } else {
+        this.boost += 1;
+      }
   }
 
   this.advancePlayer = function() {
