@@ -7,17 +7,28 @@ $(function() {
   player1.placePlayer();
   player2.placePlayer();
 
-  // Keyup event handler: players advance on certain keyups
-  $(document).on('keyup', function(event) {
-    // keyCode 81 = q, advance player 1
-    if (event.keyCode === 81) {
-      player1.checkBoostToAdvance();
-    }
-    // keyCode 80 = p, advance player 2
-    if (event.keyCode === 80) {
-      player2.checkBoostToAdvance();
-    }
-  });
+  winner = false;
+
+  // Keyup event handler: players advance on certain keyups until a player wins
+
+    $(document).on('keyup', function(event) {
+      // keyCode 81 = q, advance player 1
+      if (!winner) {
+        if (event.keyCode === 81) {
+          player1.checkBoostToAdvance();
+          if (player1.playerPosition() === 0) {
+            winner = true;
+          }
+        }
+        // keyCode 80 = p, advance player 2
+        if (event.keyCode === 80) {
+          player2.checkBoostToAdvance();
+          if (player2.playerPosition() === 0) {
+            winner = true;
+          }
+        }
+      }
+    });
 
 });
 
