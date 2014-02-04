@@ -1,0 +1,13 @@
+td {
+  border: 1px solid black;
+  padding: 50px;
+  display: inline-block;
+}
+
+#player1_strip{
+  background-color: #ABB8CC;
+}
+
+#player2_strip {
+  background-color: #C9C5BF;
+}
