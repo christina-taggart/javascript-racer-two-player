@@ -5,6 +5,19 @@ $(function() {
   placePlayer('player-1');
   placePlayer('player-2');
 
+
+  // Keyup event handler: players advance on certain keyups
+  $(document).on('keyup', function(event) {
+    // keyCode 80 = p
+    if (event.keyCode === 80) {
+
+    }
+    // keyCode 81 = q
+    if (event.keyCode === 81) {
+
+    }
+  });
+
 });
 
 var updatePlayerPosition = function(player, space) {
