@@ -16,7 +16,7 @@ body {
 .container {
   margin: 0 auto;
   width: 80%;
-  min-width: 300px;
+  min-width: 480px;
 }
 
 .track {
@@ -31,5 +31,5 @@ body {
 }
 
 .space {
-  height: 30px;
+  height: 75px;
 }
