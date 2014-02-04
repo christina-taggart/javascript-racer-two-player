@@ -9,14 +9,24 @@ $(document).ready(function() {
   var generateRandomNumber = function() {
     return Math.floor((Math.random()*4)+1);
   }
-
+  var gameOver = false;
+  var gameStarted = false;
   var currentPositionPlayerOne = 0;
   var currentPositionPlayerTwo = 0;
   $(document).on('keyup', function() {
+    gameStarted = true;
     currentPositionPlayerOne = currentPositionPlayerOne + generateRandomNumber();
     currentPositionPlayerTwo = currentPositionPlayerTwo + generateRandomNumber();
     console.log(currentPositionPlayerOne);
     update_player_position(1, currentPositionPlayerOne);
     update_player_position(2, currentPositionPlayerTwo);
+    if (currentPositionPlayerOne>=20||currentPositionPlayerTwo>=20) {
+      gameOver = true;
+      alert("Omg!  Somebody won!");
+      location.reload();
+    }
+    else {
+      gameOver = false;
+    }
   });
 });
