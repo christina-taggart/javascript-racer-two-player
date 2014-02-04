@@ -1,0 +1,11 @@
+/*test*/
+.racer_table td {
+  background-color: white;
+  height: 30px;
+  width: 70px;
+  border: 1px solid black;
+}
+
+.racer_table td.active {
+  background-color: black;
+}
