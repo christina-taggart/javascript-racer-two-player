@@ -51,6 +51,7 @@ var restart = function(event) {
   event.preventDefault();
   $('.winner').css('display', 'none');
   $('#victor-name').empty();
+  $('.winner').find('img').remove();
   player1.updatePlayerPosition(1);
   player2.updatePlayerPosition(1);
   player1.boost = 0;
@@ -60,8 +61,13 @@ var restart = function(event) {
 
 var victory = function (winningPlayer) {
   winner = true;
-  $(".winner").css('display', 'block');
+  $('.winner').css('display', 'block');
   $('#victor-name').append(winningPlayer + " WON");
+  if (winningPlayer === "USA") {
+    $('.winner').append("<img id='flag' src='images/american-flag.png'/>")
+  } else if (winningPlayer === "USSR") {
+    $('.winner').append("<img id='flag' src='images/soviet-flag.png'/>")
+  }
 }
 
 var flash = function(element) {

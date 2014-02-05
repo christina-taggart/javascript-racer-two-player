@@ -56,3 +56,9 @@ body {
   text-decoration: none;
   color: #ffc754;
 }
+
+#flag {
+  display: block;
+  width: 300px;
+  margin: 40px auto 0 auto;
+}
