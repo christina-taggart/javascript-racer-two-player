@@ -1,25 +1,27 @@
 td {
-  border: 1px solid black;
-  padding: 50px;
+  margin: 0px 25px;
   display: inline-block;
 }
 
-#player1_strip{
-  background-color: #ABB8CC;
+.racer_table {
+  position: absolute;
+  bottom: 0px;
 }
 
-#player2_strip {
-  background-color: #C9C5BF;
+.score_keeper {
+  margin: auto;
 }
 
-#player1_strip .active {
-  background-color: red;
-}
-
-#player2_strip .active {
-  background-color: orange;
+.instructions {
+  margin-left: 865px;
+  display: inline-block;
 }
 
 body {
   background-image: url('calm_ocean.jpeg');
+}
+
+img {
+  height: 150px;
+  width: 200px;
 }
