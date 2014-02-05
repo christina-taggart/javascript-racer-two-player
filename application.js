@@ -12,7 +12,7 @@ $(function() {
           flash('#flash1');
           player1.checkBoostToAdvance();
           if (player1.playerPosition() === 0) {
-            console.log(player1.playerName.toUpperCase());
+            player2.explode();
             victory(player1.playerName.toUpperCase());
           }
         }
@@ -21,7 +21,7 @@ $(function() {
           flash('#flash2');
           player2.checkBoostToAdvance();
           if (player2.playerPosition() === 0) {
-            console.log(player2.playerName.toUpperCase());
+            player1.explode();
             victory(player2.playerName.toUpperCase());
           }
         }
@@ -104,13 +104,17 @@ var Player = function(playerId, playerName) {
   }
 
   this.removePlayer = function() {
-    $("#" + playerId + "-track .active").find('img').remove();
+    this.removeImage();
     $("#" + playerId + "-track .active").removeClass('active');
   }
 
-  this.explode = function() {
+  this.removeImage = function() {
     $("#" + playerId + "-track .active").find('img').remove();
-    $("#" + playerId + "-track #space-" + this.playerPosition().toString()).append("<img src='images/explosion.gif'/>");
+  }
+
+  this.explode = function() {
+    this.removeImage();
+    $("#" + playerId + "-track #space-" + this.playerPosition().toString()).append("<img loop=1 src='images/explosion.gif'/>");
     this.explosionSound.play();
   }
 }
