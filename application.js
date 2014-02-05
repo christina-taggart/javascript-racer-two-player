@@ -70,8 +70,8 @@ var Player = function(playerId, playerName) {
   this.playerId = playerId;
   this.playerName = playerName;
   this.boost = 0;
-  this.boost_sound = new Audio("boost.wav");
-  this.explosion_sound = new Audio("explosion.wav");
+  this.boostSound = new Audio("boost.wav");
+  this.explosionSound = new Audio("explosion.wav");
 
   this.updatePlayerPosition = function(space) {
     this.removePlayer();
@@ -82,7 +82,7 @@ var Player = function(playerId, playerName) {
   this.checkBoostToAdvance = function() {
     if (this.boost === 3) {
         this.advancePlayer();
-        this.boost_sound.play();
+        this.boostSound.play();
         this.boost = 0;
       } else {
         this.boost += 1;
@@ -111,6 +111,6 @@ var Player = function(playerId, playerName) {
   this.explode = function() {
     $("#" + playerId + "-track .active").find('img').remove();
     $("#" + playerId + "-track #space-" + this.playerPosition().toString()).append("<img src='images/explosion.gif'/>");
-    explosion.play();
+    this.explosionSound.play();
   }
 }
