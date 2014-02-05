@@ -3,6 +3,9 @@ $(function() {
 
   start();
 
+  soviet = new Audio('soviet-anthem.wav')
+  american = new Audio('american-anthem.wav')
+
   // Keyup event handler: players advance on certain keyups until a player wins
 
     $(document).on('keyup', function(event) {
@@ -13,6 +16,7 @@ $(function() {
           player1.checkBoostToAdvance();
           if (player1.playerPosition() === 0) {
             player2.explode();
+            american.play();
             victory(player1.playerName.toUpperCase());
           }
         }
@@ -22,6 +26,7 @@ $(function() {
           player2.checkBoostToAdvance();
           if (player2.playerPosition() === 0) {
             player1.explode();
+            soviet.play();
             victory(player2.playerName.toUpperCase());
           }
         }
@@ -35,8 +40,8 @@ $(function() {
 //-----Helper functions-----
 
 var start = function() {
-  player1 = new Player('player-1', 'player 1');
-  player2 = new Player('player-2', 'player 2');
+  player1 = new Player('player-1', 'USA');
+  player2 = new Player('player-2', 'USSR');
   player1.placePlayer();
   player2.placePlayer();
   winner = false;
