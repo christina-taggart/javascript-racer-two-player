@@ -28,6 +28,7 @@ $(function() {
       }
     });
 
+    $('#restart').on('click', restart());
 });
 
 
@@ -41,7 +42,8 @@ var start = function() {
   winner = false;
 }
 
-var restart = function() {
+var restart = function(event) {
+  event.preventDefault();
   $('.winner').css('display', 'none');
   $('#victor-name').empty();
   player1.updatePlayerPosition(1);
