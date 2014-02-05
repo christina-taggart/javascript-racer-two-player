@@ -17,6 +17,7 @@ $(function() {
       // keyCode 81 = q, advance player 1
       if (!winner) {
         if (event.keyCode === 81) {
+          flash('#flash1');
           player1.checkBoostToAdvance();
           if (player1.playerPosition() === 0) {
             winner = true;
@@ -25,6 +26,7 @@ $(function() {
         }
         // keyCode 80 = p, advance player 2
         if (event.keyCode === 80) {
+          flash('#flash2');
           player2.checkBoostToAdvance();
           if (player2.playerPosition() === 0) {
             winner = true;
