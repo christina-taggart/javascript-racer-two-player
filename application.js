@@ -1,15 +1,7 @@
 // Document ready:
 $(function() {
 
-  // Put player ships in starting spaces
-  player1 = new Player('player-1');
-  player2 = new Player('player-2');
-  player1.placePlayer();
-  player2.placePlayer();
-
-  winner = false;
-
-
+  start();
 
   // Keyup event handler: players advance on certain keyups until a player wins
 
@@ -20,8 +12,8 @@ $(function() {
           flash('#flash1');
           player1.checkBoostToAdvance();
           if (player1.playerPosition() === 0) {
-            winner = true;
-             $(".winner").css('display', 'block');
+            console.log(player1.playerName.toUpperCase());
+            victory(player1.playerName.toUpperCase());
           }
         }
         // keyCode 80 = p, advance player 2
@@ -29,8 +21,8 @@ $(function() {
           flash('#flash2');
           player2.checkBoostToAdvance();
           if (player2.playerPosition() === 0) {
-            winner = true;
-             $(".winner").css('display', 'block');
+            console.log(player2.playerName.toUpperCase());
+            victory(player2.playerName.toUpperCase());
           }
         }
       }
@@ -38,23 +30,49 @@ $(function() {
 
 });
 
-// Helper functions
+
+//-----Helper functions-----
+
+var start = function() {
+  player1 = new Player('player-1', 'player 1');
+  player2 = new Player('player-2', 'player 2');
+  player1.placePlayer();
+  player2.placePlayer();
+  winner = false;
+}
+
+var restart = function() {
+  $('.winner').css('display', 'none');
+  $('#victor-name').empty();
+  player1.updatePlayerPosition(1);
+  player2.updatePlayerPosition(1);
+  player1.boost = 0;
+  player2.boost = 0;
+  winner = false;
+}
+
+var victory = function (winningPlayer) {
+  winner = true;
+  $(".winner").css('display', 'block');
+  $('#victor-name').append(winningPlayer + " WON");
+}
 
 var flash = function(element) {
   $(element).css('color', 'red');
   setTimeout(function(){ $(element).css('color', "#ffc754"); }, 50);
-
 }
 
-// Player constructor
-var Player = function(player) {
-  this.player = player;
+
+//-----Player constructor-----
+var Player = function(playerId, playerName) {
+  this.playerId = playerId;
+  this.playerName = playerName;
   this.boost = 0;
   this.boost_sound = new Audio("boost.wav");
 
   this.updatePlayerPosition = function(space) {
     this.removePlayer();
-    $("#" + player + "-track #space-" + space.toString()).addClass('active');
+    $("#" + playerId + "-track #space-" + space.toString()).addClass('active');
     this.placePlayer();
   }
 
@@ -74,15 +92,15 @@ var Player = function(player) {
   }
 
   this.playerPosition = function() {
-    return parseInt($("#" + player + "-track .active").attr('id').slice(-1));
+    return parseInt($("#" + playerId + "-track .active").attr('id').slice(-1));
   }
 
   this.placePlayer = function() {
-    $("#" + player + "-track .active").append("<img src='images/" + player + ".png'/>");
+    $("#" + playerId + "-track .active").append("<img src='images/" + playerId + ".png'/>");
   }
 
   this.removePlayer = function() {
-    $("#" + player + "-track .active").find('img').remove();
-    $("#" + player + "-track .active").removeClass('active');
+    $("#" + playerId + "-track .active").find('img').remove();
+    $("#" + playerId + "-track .active").removeClass('active');
   }
 }
