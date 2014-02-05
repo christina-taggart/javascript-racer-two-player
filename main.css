@@ -36,3 +36,15 @@ td.active {
   text-align: center;
   width: 23%;
 }
+
+#victory-message {
+  float: left;
+  padding-bottom: 400px;
+  text-align: center;
+  vertical-align: top;
+  height: 400px;
+}
+
+h1{
+  display: inline;
+}
