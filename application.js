@@ -9,6 +9,8 @@ $(function() {
 
   winner = false;
 
+
+
   // Keyup event handler: players advance on certain keyups until a player wins
 
     $(document).on('keyup', function(event) {
@@ -18,6 +20,7 @@ $(function() {
           player1.checkBoostToAdvance();
           if (player1.playerPosition() === 0) {
             winner = true;
+             $(".winner").css('display', 'block');
           }
         }
         // keyCode 80 = p, advance player 2
@@ -25,6 +28,7 @@ $(function() {
           player2.checkBoostToAdvance();
           if (player2.playerPosition() === 0) {
             winner = true;
+             $(".winner").css('display', 'block');
           }
         }
       }
@@ -32,6 +36,15 @@ $(function() {
 
 });
 
+// Helper functions
+
+var flash = function(element) {
+  $(element).css('color', 'red');
+  setTimeout(function(){ $(element).css('color', "#ffc754"); }, 50);
+
+}
+
+// Player constructor
 var Player = function(player) {
   this.player = player;
   this.boost = 0;
