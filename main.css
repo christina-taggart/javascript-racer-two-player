@@ -9,3 +9,30 @@ td.active {
   color: black;
   background-color: yellow;
 }
+
+.container {
+  width: 1500px;
+}
+
+.kate {
+  display: inline-block;
+  vertical-align: center;
+  width: 700px;
+}
+
+.table-div {
+  display: inline-block;
+  height: 1000px;
+  vertical-align: center;
+  width: 750px;
+}
+
+.table-div-div {
+  padding-top: 500px;
+}
+
+.racer-table {
+  display: inline-block;
+  text-align: center;
+  width: 23%;
+}
