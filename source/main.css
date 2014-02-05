@@ -1,3 +1,12 @@
-.car1 {
-  margin: 1px;
+.player_one {
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
+
+.player_two {
+  border-bottom: 1px solid;
+}
+
+#winner {
+  display: none;
 }
