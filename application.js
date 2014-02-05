@@ -71,6 +71,7 @@ var Player = function(playerId, playerName) {
   this.playerName = playerName;
   this.boost = 0;
   this.boost_sound = new Audio("boost.wav");
+  this.explosion_sound = new Audio("explosion.wav");
 
   this.updatePlayerPosition = function(space) {
     this.removePlayer();
@@ -93,6 +94,7 @@ var Player = function(playerId, playerName) {
     this.updatePlayerPosition(space);
   }
 
+
   this.playerPosition = function() {
     return parseInt($("#" + playerId + "-track .active").attr('id').slice(-1));
   }
@@ -104,5 +106,11 @@ var Player = function(playerId, playerName) {
   this.removePlayer = function() {
     $("#" + playerId + "-track .active").find('img').remove();
     $("#" + playerId + "-track .active").removeClass('active');
+  }
+
+  this.explode = function() {
+    $("#" + playerId + "-track .active").find('img').remove();
+    $("#" + playerId + "-track #space-" + this.playerPosition().toString()).append("<img src='images/explosion.gif'/>");
+    explosion.play();
   }
 }
