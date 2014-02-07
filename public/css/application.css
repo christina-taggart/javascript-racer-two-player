@@ -1,0 +1,26 @@
+td {
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+}
+
+.players {
+  float: left;
+}
+
+.tracks {
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+.tracks2 {
+  padding-top: 20px;
+}
+
+.spot1 {
+  background-color: blue;
+}
+
+.spot2 {
+  background-color: green;
+}

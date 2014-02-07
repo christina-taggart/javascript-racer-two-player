@@ -1,0 +1,45 @@
+
+<div class="game" id=<%=@gameid%>></div>
+<div class="race_track">
+
+        <div class="game" id="<%=@gameid%>"></div>
+
+        <div class="players">
+           <p class="player1"><%=@user1.name%></p>
+           <p class="player2"><%=@user2.name%></p>
+         </div>
+
+        <table class="tracks">
+          <tr class="track1">
+            <td id="first_1" class="spot1"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="last_1"></td>
+          </tr>
+          <tr class="track2">
+            <td id="first_2" class="spot2"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="last_2"></td>
+          </tr>
+        </table>
+
+        <h4 class="winner"></h4>
+        <p class="game-url">View the results of this game <a href="/games/<%=@gameid%>">here</a></p>
+      </div>
