@@ -1,0 +1,64 @@
+body {
+  background-image: url('images/space_compressed.jpg');
+  font-family: 'Press Start 2P', sans-serif;
+  color: #ffc754;
+}
+
+.instructions {
+  font-style: bold;
+  text-align: center;
+}
+
+.instructions h1 {
+  text-decoration: underline;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+  min-width: 480px;
+}
+
+.track {
+  margin-left: 2.3%;
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.track-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.track div {
+  height: 75px;
+}
+
+.track div img {
+  margin-left: 40%;
+}
+
+.winner {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+  display: none;
+}
+
+#restart:hover{
+  color: red;
+}
+
+#restart {
+  text-decoration: none;
+  color: #ffc754;
+}
+
+#flag {
+  display: block;
+  width: 300px;
+  margin: 40px auto 0 auto;
+}

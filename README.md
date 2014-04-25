@@ -1,5 +1,8 @@
 # Javascript Racer 1 Front End
 
+##Click on the image below to see a video demo of our game! 
+[![Video](http://img.youtube.com/vi/Cmiq-vQEnoQ/0.jpg)](http://www.youtube.com/watch?v=Cmiq-vQEnoQ)
+
 ## Learning Competencies
 
 * Define [jQuery][] callback events
