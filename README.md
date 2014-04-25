@@ -1,6 +1,8 @@
 # Javascript Racer 1 Front End
 
+Click on image to see the video. 
 [![Video](http://img.youtube.com/vi/Cmiq-vQEnoQ/0.jpg)](http://www.youtube.com/watch?v=Cmiq-vQEnoQ)
+
 
 ## Learning Competencies
 
